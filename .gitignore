@@ -40,6 +40,7 @@ Thumbs.db
 data/raw/
 data/clean/
 data/chunks/
+data/embeddings
 
 # =========================
 # Logs
