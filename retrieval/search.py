@@ -111,7 +111,7 @@ def cosine_similarity(vector_a, vector_b):
 # Search
 # --------------------------------------------------
 
-def search(query, top_k=3):
+def search(query, top_k=3, threshold=0.4):
     """
     Find the most relevant WCE chunks
     for a user's question.
@@ -143,6 +143,12 @@ def search(query, top_k=3):
         key=lambda item: item["score"],
         reverse=True
     )
+
+    results = [
+        result
+        for result in results
+        if result["score"] >= threshold
+    ]
 
     return results[:top_k]
 
@@ -181,8 +187,8 @@ if __name__ == "__main__":
             f"Source: {result['source']}"
         )
 
-        print(
-            f"\n{result['text']}"
-        )
+        # print(
+        #     f"\n{result['text']}"
+        # )
 
         print()
