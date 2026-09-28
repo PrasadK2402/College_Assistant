@@ -1,3 +1,5 @@
 crawl4ai
 requests
 python-dotenv
+tiktoken
+huggingface_hub
